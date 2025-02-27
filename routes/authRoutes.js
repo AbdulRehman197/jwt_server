@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
         }
         const permissions = await getUserPermissions(user.id);
         console.log("process.env.JWT_SECRET", process.env.JWT_SECRET)
-        const token = jwt.sign({ id: user.id, permissions }, process.env.JWT_SECRET, {algorithm: "ES384",expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id, permissions }, process.env.JWT_SECRET, {algorithm: "RS256",expiresIn: '1h' });
         res.json({ token });
     } catch (err) {
         console.error("err",err)
