@@ -15,11 +15,11 @@ async function seedDatabase() {
         const userId = this.lastID;
         if (i % 2 == 0) {
           permissionsDb.run(
-            "INSERT INTO permissions (user_id, file, permission) VALUES (?, ?, ?)",
+            "INSERT INTO permissions (user_id, permission_for, permission) VALUES (?, ?, ?)",
             [userId, `images`, "read"]
           );
         } else {
-          permissionsDb.run('INSERT INTO permissions (user_id, file, permission) VALUES (?, ?, ?)', [userId, `images`, 'read/write'])
+          permissionsDb.run('INSERT INTO permissions (user_id, permission_for, permission) VALUES (?, ?, ?)', [userId, `images`, 'read/write'])
         }
       }
     );
